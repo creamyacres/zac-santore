@@ -272,8 +272,7 @@ function About() {
             <img src="/zac.jpeg" alt="Zac Santore" className="headshot-img" />
           </div>
           <div className="about-tags">
-            <span className="meta-tag">Based in the US</span>
-            <span className="meta-tag">Open to work</span>
+            <span className="meta-tag">Based in Longmont, CO</span>
           </div>
         </motion.div>
 
@@ -416,7 +415,7 @@ function Contact() {
           </motion.p>
           <motion.div className="contact-links" variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.08 } } }}>
             {[
-              { href: 'mailto:zac@example.com', label: 'zac@example.com', icon: (
+              { href: 'mailto:ztsantore@gmail.com', label: 'ztsantore@gmail.com', icon: (
                 <svg width="15" height="15" viewBox="0 0 15 15" fill="none" aria-hidden="true">
                   <rect x="0.75" y="2.75" width="13.5" height="9.5" rx="1.5" stroke="currentColor" strokeWidth="1.5"/>
                   <path d="M0.75 4.5l6.75 4.5 6.75-4.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
@@ -533,7 +532,7 @@ function NineToFive() {
           </motion.div>
         </motion.div>
 
-        {/* Event table */}
+        {/* Desktop table */}
         <motion.div
           className="ntf-table-wrap"
           variants={fadeUp}
@@ -582,6 +581,37 @@ function NineToFive() {
             </tbody>
           </table>
         </motion.div>
+
+        {/* Mobile cards */}
+        <div className="ntf-cards">
+          {EVENTS.map((ev, i) => (
+            <motion.div
+              key={ev.id}
+              className="ntf-card"
+              variants={fadeUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.15 }}
+              transition={{ duration: 0.5, ease: EASE, delay: i * 0.06 }}
+            >
+              <div className="ntf-card-top">
+                <div>
+                  <span className="ntf-event-name">{ev.name}</span>
+                  <span className="ntf-client">{ev.client}</span>
+                </div>
+                <span className="ntf-td-year">{ev.year}</span>
+              </div>
+              <div className="ntf-card-meta">
+                <span className="ntf-type-tag">{ev.type}</span>
+                <span className="ntf-card-loc">{ev.location}</span>
+                <span className="ntf-card-attendees">{ev.attendees.toLocaleString()} attendees</span>
+              </div>
+              <div className="ntf-scope-pills">
+                {ev.scope.map(s => <span key={s} className="ntf-pill">{s}</span>)}
+              </div>
+            </motion.div>
+          ))}
+        </div>
 
       </div>
     </section>

@@ -825,6 +825,58 @@ a {
   color: var(--ink-faint);
 }
 
+/* Mobile cards — hidden on desktop */
+.ntf-cards {
+  display: none;
+  flex-direction: column;
+  gap: 1px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--border);
+  margin-top: 48px;
+}
+
+.ntf-card {
+  background: var(--white);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.ntf-card-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.ntf-card-top > div {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.ntf-card-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.ntf-card-loc {
+  font-size: 13px;
+  color: var(--ink-muted);
+}
+
+.ntf-card-attendees {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--ink);
+}
+
 /* Responsive */
 @media (max-width: 900px) {
   .ntf-intro {
@@ -838,6 +890,15 @@ a {
 
   .ntf-stat {
     text-align: left;
+  }
+
+  /* Swap table for cards */
+  .ntf-table-wrap {
+    display: none;
+  }
+
+  .ntf-cards {
+    display: flex;
   }
 }
 
