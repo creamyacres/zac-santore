@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState, useRef } from 'react'
 import { motion, useScroll, useTransform, useSpring, useInView } from 'framer-motion'
 import './App.css'
 
@@ -108,7 +108,7 @@ const EVENTS = [
     type: 'Corporate',
     attendees: 420,
     year: '2022',
-    location: 'Napa Valley, CA',
+    location: 'Napa, CA',
     scope: ['Invitation management', 'Custom registration flow', 'Concierge portal'],
   },
 ]
