@@ -247,15 +247,16 @@ a {
   border-color: rgba(255,255,255,0.5);
 }
 
-/* Grain — static texture, scrolls with section */
+/* Grain — film grain texture, scrolls with section */
 .hero-grain {
   position: absolute;
   inset: 0;
   pointer-events: none;
   z-index: 5;
-  opacity: 0.18;
+  opacity: 0.2;
   background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg'><filter id='f'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23f)'/></svg>");
   background-size: 180px 180px;
+  animation: film-grain 0.6s steps(8) infinite;
 }
 
 /* Light streak */
@@ -494,9 +495,10 @@ a {
   inset: 0;
   pointer-events: none;
   z-index: 0;
-  opacity: 0.18;
+  opacity: 0.2;
   background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg'><filter id='f'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23f)'/></svg>");
   background-size: 180px 180px;
+  animation: film-grain 0.6s steps(8) infinite;
 }
 
 .contact-streak {
@@ -917,6 +919,18 @@ a {
 }
 
 /* ─── Keyframes ──────────────────────────────────────────────── */
+
+@keyframes film-grain {
+  0%   { background-position:   0%    0%; }
+  12%  { background-position: -20%  -15%; }
+  25%  { background-position:  15%   10%; }
+  37%  { background-position:  -8%   22%; }
+  50%  { background-position:  22%   -8%; }
+  62%  { background-position: -15%   18%; }
+  75%  { background-position:  10%  -22%; }
+  87%  { background-position: -22%    5%; }
+  100% { background-position:   0%    0%; }
+}
 
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(20px); }
