@@ -288,17 +288,14 @@ function About() {
         >
           <motion.p className="section-label" variants={fadeUp} transition={{ duration: 0.6, ease: EASE }}>About</motion.p>
           <motion.h2 className="section-heading" variants={reveal} transition={{ duration: 0.9, ease: EASE }}>
-            Building things<br />that matter.
+            Hi, I'm Zac.
           </motion.h2>
-          {[
-            "I'm a product-minded builder focused on shipping software that solves real problems. I care about the details — clean interfaces, reliable systems, and experiences that don't get in the user's way.",
-            "My background spans full-stack development and product design. I'm most at home working across the stack, from data modeling to the last pixel of a UI.",
-            "Outside of building, I spend time cooking, reading long-form nonfiction, and finding places I haven't been yet."
-          ].map((text, i) => (
-            <motion.div key={i} variants={fadeUp} transition={{ duration: 0.7, ease: EASE }}>
-              <p className="bio-p">{text}</p>
-            </motion.div>
-          ))}
+          <motion.div variants={fadeUp} transition={{ duration: 0.7, ease: EASE }}>
+            <p className="bio-p">For the past 10+ years I've been the person making sure events run smoothly — registration systems, access control, experiential buildouts, all the behind-the-scenes stuff that makes a great experience possible.</p>
+          </motion.div>
+          <motion.div variants={fadeUp} transition={{ duration: 0.7, ease: EASE }}>
+            <p className="bio-p">Outside of work, I'm building things with AI, shooting film and digital, and enjoying Colorado life with my little family. <span aria-label="two guys and a cat">👨‍👨‍🐱</span></p>
+          </motion.div>
         </motion.div>
 
       </div>
