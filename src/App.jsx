@@ -1,5 +1,7 @@
 import { useState, useRef } from 'react'
+import { Routes, Route, Link } from 'react-router-dom'
 import { motion, useScroll, useTransform, useSpring, useInView } from 'framer-motion'
+import GlobePage from './globe/GlobePage.jsx'
 import './App.css'
 
 const PROJECTS = [
@@ -541,14 +543,14 @@ function NineToFive() {
           viewport={{ once: true, amount: 0.5 }}
           transition={{ duration: 0.6, ease: EASE }}
         >
-          <a href="/globe" className="ntf-globe-link">
+          <Link to="/globe" className="ntf-globe-link">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
               <circle cx="8" cy="8" r="6.75" stroke="currentColor" strokeWidth="1.5"/>
               <ellipse cx="8" cy="8" rx="2.75" ry="6.75" stroke="currentColor" strokeWidth="1.5"/>
               <path d="M1.5 6h13M1.5 10h13" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
             </svg>
             See all events
-          </a>
+          </Link>
         </motion.div>
 
         {/* Desktop table */}
@@ -646,7 +648,7 @@ function Footer() {
   )
 }
 
-export default function App() {
+function HomePage() {
   return (
     <>
       <Nav />
@@ -659,5 +661,14 @@ export default function App() {
       </main>
       <Footer />
     </>
+  )
+}
+
+export default function App() {
+  return (
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/globe" element={<GlobePage />} />
+    </Routes>
   )
 }

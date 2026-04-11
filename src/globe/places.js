@@ -1,0 +1,270 @@
+// Source of truth: Zac's Vault/Active Projects 🚀/Zac Santore Website/Events.md
+// To add events: update that file first, then add an entry here.
+
+export const places = [
+  // ── 2026 ──────────────────────────────────────────────────────────
+  {
+    id: 'google-accelerate-2026-las-vegas',
+    name: 'Google Accelerate 2026',
+    location: 'Las Vegas, NV',
+    lat: 36.1699, lng: -115.1398,
+    date: '2026', attendees: 6500,
+    services: ['Registration', 'Event App', 'Access Control', 'Gamification'],
+  },
+  {
+    id: 'google-accelerate-2026-dubai',
+    name: 'Google Accelerate 2026',
+    location: 'Dubai, UAE',
+    lat: 25.2048, lng: 55.2708,
+    date: '2026', attendees: 6000,
+    services: ['Registration', 'Event App', 'Access Control', 'Gamification'],
+  },
+
+  // ── 2025 ──────────────────────────────────────────────────────────
+  {
+    id: 'visa-vpf-2025',
+    name: 'VISA VPF 2025',
+    location: 'Dallas, TX',
+    lat: 32.7767, lng: -96.7970,
+    date: '2025', attendees: 2000,
+    services: ['Registration', 'Event App', 'Lead Gen'],
+  },
+  {
+    id: 'tech-immersion-2025-amer',
+    name: 'Tech Immersion 2025',
+    location: 'Los Angeles, CA',
+    lat: 34.0522, lng: -118.2437,
+    date: '2025', attendees: 5000,
+    services: ['Registration', 'Event App', 'Access Control', 'Gamification'],
+  },
+  {
+    id: 'tech-immersion-2025-emea',
+    name: 'Tech Immersion 2025',
+    location: 'London, UK',
+    lat: 51.5074, lng: -0.1278,
+    date: '2025', attendees: 4000,
+    services: ['Registration', 'Event App', 'Access Control'],
+  },
+  {
+    id: 'tech-immersion-2025-apac',
+    name: 'Tech Immersion 2025',
+    location: 'Singapore',
+    lat: 1.3521, lng: 103.8198,
+    date: '2025', attendees: 2500,
+    services: ['Registration', 'Event App', 'Access Control'],
+  },
+  {
+    id: 'cgi-2025',
+    name: 'Clinton Global Initiative 2025',
+    location: 'New York, NY',
+    lat: 40.7128, lng: -74.0060,
+    date: '2025', attendees: 3000,
+    services: ['Registration', 'Event App', 'Access Control'],
+  },
+
+  // ── 2024 ──────────────────────────────────────────────────────────
+  {
+    id: 'booz-allen-2024-mclean',
+    name: 'Booz Allen Cultural Engagement Tour',
+    location: 'McLean, VA',
+    lat: 38.9339, lng: -77.1773,
+    date: '2024', attendees: 400,
+    services: ['Registration', 'Event App', 'Gamification'],
+  },
+  {
+    id: 'booz-allen-2024-melbourne',
+    name: 'Booz Allen Cultural Engagement Tour',
+    location: 'Melbourne, FL',
+    lat: 28.0836, lng: -80.6081,
+    date: '2024', attendees: 400,
+    services: ['Registration', 'Event App', 'Gamification'],
+  },
+  {
+    id: 'booz-allen-2024-nbp',
+    name: 'Booz Allen Cultural Engagement Tour',
+    location: 'NBP, MD',
+    lat: 39.1157, lng: -76.8597,
+    date: '2024', attendees: 400,
+    services: ['Registration', 'Event App', 'Gamification'],
+  },
+  {
+    id: 'booz-allen-2024-san-diego',
+    name: 'Booz Allen Cultural Engagement Tour',
+    location: 'San Diego, CA',
+    lat: 32.7157, lng: -117.1611,
+    date: '2024', attendees: 400,
+    services: ['Registration', 'Event App', 'Gamification'],
+  },
+  {
+    id: 'booz-allen-2024-denver',
+    name: 'Booz Allen Cultural Engagement Tour',
+    location: 'Denver, CO',
+    lat: 39.7392, lng: -104.9903,
+    date: '2024', attendees: 400,
+    services: ['Registration'],
+  },
+  {
+    id: 'booz-allen-2024-san-antonio',
+    name: 'Booz Allen Cultural Engagement Tour',
+    location: 'San Antonio, TX',
+    lat: 29.4241, lng: -98.4936,
+    date: '2024', attendees: 400,
+    services: ['Registration'],
+  },
+  {
+    id: 'google-generate-2024',
+    name: 'Google Generate 2024',
+    location: 'London, UK',
+    lat: 51.5074, lng: -0.1278,
+    date: '2024', attendees: 12000,
+    services: ['Registration', 'Event App', 'Access Control', 'Gamification'],
+  },
+  {
+    id: 'cgi-2024',
+    name: 'Clinton Global Initiative 2024',
+    location: 'New York, NY',
+    lat: 40.7128, lng: -74.0060,
+    date: '2024', attendees: 3000,
+    services: ['Registration', 'Event App'],
+  },
+
+  // ── 2023 ──────────────────────────────────────────────────────────
+  {
+    id: 'google-ambassador-summit-2023',
+    name: 'Google Ambassador Summit 2023',
+    location: 'Mountain View, CA',
+    lat: 37.3861, lng: -122.0839,
+    date: '2023', attendees: 400,
+    services: ['Registration', 'Event App', 'Gamification', 'BLE Scanning'],
+  },
+
+  // ── 2020 ──────────────────────────────────────────────────────────
+  {
+    id: 'presidential-debates-2020-cleveland',
+    name: 'Presidential Debates 2020',
+    location: 'Cleveland, OH',
+    lat: 41.4993, lng: -81.6944,
+    date: '2020', attendees: 1200,
+    services: ['Registration', 'Access Control'],
+  },
+  {
+    id: 'presidential-debates-2020-salt-lake',
+    name: 'Presidential Debates 2020',
+    location: 'Salt Lake City, UT',
+    lat: 40.7608, lng: -111.8910,
+    date: '2020', attendees: 1200,
+    services: ['Registration', 'Access Control'],
+  },
+  {
+    id: 'presidential-debates-2020-nashville',
+    name: 'Presidential Debates 2020',
+    location: 'Nashville, TN',
+    lat: 36.1627, lng: -86.7816,
+    date: '2020', attendees: 1200,
+    services: ['Registration', 'Access Control'],
+  },
+  {
+    id: 'presidential-debates-2020-hempstead',
+    name: 'Presidential Debates 2020',
+    location: 'Hempstead, NY (Hofstra University)',
+    lat: 40.7128, lng: -73.6001,
+    date: '2020', attendees: 1000,
+    services: ['Registration', 'Access Control'],
+  },
+  {
+    id: 'presidential-debates-2020-st-louis',
+    name: 'Presidential Debates 2020',
+    location: 'St. Louis, MO (Washington University)',
+    lat: 38.6488, lng: -90.3108,
+    date: '2020', attendees: 1000,
+    services: ['Registration', 'Access Control'],
+  },
+  {
+    id: 'presidential-debates-2020-farmville',
+    name: 'Presidential Debates 2020',
+    location: 'Farmville, VA (Longwood University)',
+    lat: 37.2988, lng: -78.3947,
+    date: '2020', attendees: 1000,
+    services: ['Registration', 'Access Control'],
+  },
+  {
+    id: 'presidential-debates-2020-las-vegas',
+    name: 'Presidential Debates 2020',
+    location: 'Las Vegas, NV (University of Nevada)',
+    lat: 36.1699, lng: -115.1398,
+    date: '2020', attendees: 1000,
+    services: ['Registration', 'Access Control'],
+  },
+
+  // ── 2019 ──────────────────────────────────────────────────────────
+  {
+    id: 'nba-global-games-2019-india',
+    name: 'NBA Global Games 2019',
+    location: 'Mumbai, India',
+    lat: 19.0760, lng: 72.8777,
+    date: '2019', attendees: 500,
+    services: ['Registration'],
+  },
+  {
+    id: 'nba-global-games-2019-london',
+    name: 'NBA Global Games 2019',
+    location: 'London, UK',
+    lat: 51.5074, lng: -0.1278,
+    date: '2019', attendees: 500,
+    services: ['Registration'],
+  },
+
+  // ── 2018 ──────────────────────────────────────────────────────────
+  {
+    id: 'nk-us-summit-2018',
+    name: 'North Korea–US Singapore Summit 2018',
+    location: 'Singapore',
+    lat: 1.3521, lng: 103.8198,
+    date: '2018', attendees: 300,
+    services: ['Registration', 'Access Control'],
+  },
+
+  // ── 2016 ──────────────────────────────────────────────────────────
+  {
+    id: 'dnc-2016',
+    name: 'Democratic National Convention 2016',
+    location: 'Philadelphia, PA',
+    lat: 39.9526, lng: -75.1652,
+    date: '2016', attendees: 10000,
+    services: ['Registration', 'Access Control'],
+  },
+  {
+    id: 'rnc-2016',
+    name: 'Republican National Convention 2016',
+    location: 'Cleveland, OH',
+    lat: 41.4993, lng: -81.6944,
+    date: '2016', attendees: 10000,
+    services: ['Registration', 'Access Control'],
+  },
+  {
+    id: 'nuclear-security-summit-2016',
+    name: 'Nuclear Security Summit 2016',
+    location: 'Washington, DC',
+    lat: 38.9072, lng: -77.0369,
+    date: '2016', attendees: 500,
+    services: ['Registration', 'Access Control'],
+  },
+
+  // ── 2015 ──────────────────────────────────────────────────────────
+  {
+    id: 'special-olympics-2015',
+    name: 'Special Olympics World Games 2015',
+    location: 'Los Angeles, CA',
+    lat: 34.0522, lng: -118.2437,
+    date: '2015', attendees: 20000,
+    services: ['Registration'],
+  },
+  {
+    id: 'cgi-mea-2015',
+    name: 'Clinton Global Initiative MEA 2015',
+    location: 'Marrakech, Morocco',
+    lat: 31.6295, lng: -7.9811,
+    date: '2015', attendees: 400,
+    services: ['Registration', 'Access Control'],
+  },
+]
