@@ -532,6 +532,25 @@ function NineToFive() {
           </motion.div>
         </motion.div>
 
+        {/* See all events link */}
+        <motion.div
+          className="ntf-globe-row"
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ duration: 0.6, ease: EASE }}
+        >
+          <a href="/globe" className="ntf-globe-link">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <circle cx="8" cy="8" r="6.75" stroke="currentColor" strokeWidth="1.5"/>
+              <ellipse cx="8" cy="8" rx="2.75" ry="6.75" stroke="currentColor" strokeWidth="1.5"/>
+              <path d="M1.5 6h13M1.5 10h13" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+            </svg>
+            See all events
+          </a>
+        </motion.div>
+
         {/* Desktop table */}
         <motion.div
           className="ntf-table-wrap"
