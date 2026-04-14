@@ -100,6 +100,50 @@
   color: var(--text-muted);
 }
 
+/* ── Grouped events ─────────────────────────────────────────── */
+
+.side-nav__group-meta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.side-nav__chevron {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--text-faint);
+  line-height: 1;
+  transition: transform 200ms cubic-bezier(0.23, 1, 0.32, 1),
+              color 120ms ease;
+}
+
+.side-nav__chevron[data-open="true"] {
+  transform: rotate(90deg);
+  color: var(--text-muted);
+}
+
+/* Child list — overflow hidden lets AnimatePresence animate height */
+.side-nav__children {
+  list-style: none;
+  overflow: hidden;
+  padding: 2px 0 4px;
+}
+
+/* Child items — indented, show location not event name */
+.side-nav__item--child {
+  padding-left: 24px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+
+.side-nav__child-dot {
+  flex-shrink: 0;
+  font-size: 14px;
+  color: var(--text-faint);
+  line-height: 1;
+}
+
 /* ── Mobile bottom sheet ────────────────────────────────────── */
 
 @media (max-width: 768px) {

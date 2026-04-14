@@ -10,6 +10,7 @@ export const places = [
     lat: 36.1699, lng: -115.1398,
     date: '2026', attendees: 6500,
     services: ['Registration', 'Event App', 'Access Control', 'Gamification'],
+    parentId: 'google-accelerate-2026',
   },
   {
     id: 'google-accelerate-2026-dubai',
@@ -18,6 +19,7 @@ export const places = [
     lat: 25.2048, lng: 55.2708,
     date: '2026', attendees: 6000,
     services: ['Registration', 'Event App', 'Access Control', 'Gamification'],
+    parentId: 'google-accelerate-2026',
   },
 
   // ── 2025 ──────────────────────────────────────────────────────────
@@ -36,6 +38,7 @@ export const places = [
     lat: 34.0522, lng: -118.2437,
     date: '2025', attendees: 5000,
     services: ['Registration', 'Event App', 'Access Control', 'Gamification'],
+    parentId: 'tech-immersion-2025',
   },
   {
     id: 'tech-immersion-2025-emea',
@@ -44,6 +47,7 @@ export const places = [
     lat: 51.5074, lng: -0.1278,
     date: '2025', attendees: 4000,
     services: ['Registration', 'Event App', 'Access Control'],
+    parentId: 'tech-immersion-2025',
   },
   {
     id: 'tech-immersion-2025-apac',
@@ -52,6 +56,7 @@ export const places = [
     lat: 1.3521, lng: 103.8198,
     date: '2025', attendees: 2500,
     services: ['Registration', 'Event App', 'Access Control'],
+    parentId: 'tech-immersion-2025',
   },
   {
     id: 'cgi-2025',
@@ -70,6 +75,7 @@ export const places = [
     lat: 38.9339, lng: -77.1773,
     date: '2024', attendees: 400,
     services: ['Registration', 'Event App', 'Gamification'],
+    parentId: 'booz-allen-2024',
   },
   {
     id: 'booz-allen-2024-melbourne',
@@ -78,6 +84,7 @@ export const places = [
     lat: 28.0836, lng: -80.6081,
     date: '2024', attendees: 400,
     services: ['Registration', 'Event App', 'Gamification'],
+    parentId: 'booz-allen-2024',
   },
   {
     id: 'booz-allen-2024-nbp',
@@ -86,6 +93,7 @@ export const places = [
     lat: 39.1157, lng: -76.8597,
     date: '2024', attendees: 400,
     services: ['Registration', 'Event App', 'Gamification'],
+    parentId: 'booz-allen-2024',
   },
   {
     id: 'booz-allen-2024-san-diego',
@@ -94,6 +102,7 @@ export const places = [
     lat: 32.7157, lng: -117.1611,
     date: '2024', attendees: 400,
     services: ['Registration', 'Event App', 'Gamification'],
+    parentId: 'booz-allen-2024',
   },
   {
     id: 'booz-allen-2024-denver',
@@ -102,6 +111,7 @@ export const places = [
     lat: 39.7392, lng: -104.9903,
     date: '2024', attendees: 400,
     services: ['Registration'],
+    parentId: 'booz-allen-2024',
   },
   {
     id: 'booz-allen-2024-san-antonio',
@@ -110,6 +120,7 @@ export const places = [
     lat: 29.4241, lng: -98.4936,
     date: '2024', attendees: 400,
     services: ['Registration'],
+    parentId: 'booz-allen-2024',
   },
   {
     id: 'google-generate-2024',
@@ -146,6 +157,7 @@ export const places = [
     lat: 41.4993, lng: -81.6944,
     date: '2020', attendees: 1200,
     services: ['Registration', 'Access Control'],
+    parentId: 'presidential-debates-2020',
   },
   {
     id: 'presidential-debates-2020-salt-lake',
@@ -154,6 +166,7 @@ export const places = [
     lat: 40.7608, lng: -111.8910,
     date: '2020', attendees: 1200,
     services: ['Registration', 'Access Control'],
+    parentId: 'presidential-debates-2020',
   },
   {
     id: 'presidential-debates-2020-nashville',
@@ -162,6 +175,7 @@ export const places = [
     lat: 36.1627, lng: -86.7816,
     date: '2020', attendees: 1200,
     services: ['Registration', 'Access Control'],
+    parentId: 'presidential-debates-2020',
   },
   {
     id: 'presidential-debates-2020-hempstead',
@@ -170,6 +184,7 @@ export const places = [
     lat: 40.7128, lng: -73.6001,
     date: '2020', attendees: 1000,
     services: ['Registration', 'Access Control'],
+    parentId: 'presidential-debates-2020',
   },
   {
     id: 'presidential-debates-2020-st-louis',
@@ -178,6 +193,7 @@ export const places = [
     lat: 38.6488, lng: -90.3108,
     date: '2020', attendees: 1000,
     services: ['Registration', 'Access Control'],
+    parentId: 'presidential-debates-2020',
   },
   {
     id: 'presidential-debates-2020-farmville',
@@ -186,6 +202,7 @@ export const places = [
     lat: 37.2988, lng: -78.3947,
     date: '2020', attendees: 1000,
     services: ['Registration', 'Access Control'],
+    parentId: 'presidential-debates-2020',
   },
   {
     id: 'presidential-debates-2020-las-vegas',
@@ -194,6 +211,7 @@ export const places = [
     lat: 36.1699, lng: -115.1398,
     date: '2020', attendees: 1000,
     services: ['Registration', 'Access Control'],
+    parentId: 'presidential-debates-2020',
   },
 
   // ── 2019 ──────────────────────────────────────────────────────────
@@ -204,6 +222,7 @@ export const places = [
     lat: 19.0760, lng: 72.8777,
     date: '2019', attendees: 500,
     services: ['Registration'],
+    parentId: 'nba-global-games-2019',
   },
   {
     id: 'nba-global-games-2019-london',
@@ -212,6 +231,7 @@ export const places = [
     lat: 51.5074, lng: -0.1278,
     date: '2019', attendees: 500,
     services: ['Registration'],
+    parentId: 'nba-global-games-2019',
   },
 
   // ── 2018 ──────────────────────────────────────────────────────────
