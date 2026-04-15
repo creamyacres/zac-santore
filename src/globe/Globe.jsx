@@ -32,9 +32,12 @@ function spreadOverlapping(places) {
   })
 }
 
+const IDLE_MS = 10_000 // ms of no cursor activity before globe spins
+
 export function Globe({ places, onPlaceClick, selectedPlace, focusPlace }) {
   const globeRef = useRef(null)
   const [countries, setCountries] = useState([])
+  const idleTimer = useRef(null)
 
   const spreadPlaces = useMemo(() => spreadOverlapping(places), [places])
 
@@ -44,6 +47,32 @@ export function Globe({ places, onPlaceClick, selectedPlace, focusPlace }) {
       .then((data) => setCountries(data.features))
       .catch(() => {})
   }, [])
+
+  // Enable auto-rotate (only when no card is open)
+  const startSpin = useCallback(() => {
+    const globe = globeRef.current
+    if (!globe || selectedPlace) return
+    globe.controls().autoRotate = true
+  }, [selectedPlace])
+
+  // Disable auto-rotate and reset the idle timer
+  const resetIdle = useCallback(() => {
+    const globe = globeRef.current
+    if (globe) globe.controls().autoRotate = false
+    clearTimeout(idleTimer.current)
+    idleTimer.current = setTimeout(startSpin, IDLE_MS)
+  }, [startSpin])
+
+  // Track cursor activity globally
+  useEffect(() => {
+    // Don't start spinning immediately — wait for first idle period
+    idleTimer.current = setTimeout(startSpin, IDLE_MS)
+    window.addEventListener('pointermove', resetIdle)
+    return () => {
+      clearTimeout(idleTimer.current)
+      window.removeEventListener('pointermove', resetIdle)
+    }
+  }, [resetIdle, startSpin])
 
   const handleGlobeReady = useCallback(() => {
     const globe = globeRef.current
@@ -65,17 +94,25 @@ export function Globe({ places, onPlaceClick, selectedPlace, focusPlace }) {
       console.warn('Dither post-processing unavailable:', e)
     }
 
-    globe.controls().autoRotate = true
+    globe.controls().autoRotate = false // idle timer takes over
     globe.controls().autoRotateSpeed = 0.4
     globe.controls().enableZoom = false
   }, [])
 
+  // Pause spin when a card is open; resume idle cycle when card closes
   useEffect(() => {
     const globe = globeRef.current
     if (!globe) return
     const controls = globe.controls()
-    if (controls) controls.autoRotate = !selectedPlace
-  }, [selectedPlace])
+    if (!controls) return
+    if (selectedPlace) {
+      controls.autoRotate = false
+      clearTimeout(idleTimer.current)
+    } else {
+      // Restart idle cycle after card close
+      idleTimer.current = setTimeout(startSpin, IDLE_MS)
+    }
+  }, [selectedPlace, startSpin])
 
   useEffect(() => {
     if (!focusPlace) return
@@ -103,7 +140,7 @@ export function Globe({ places, onPlaceClick, selectedPlace, focusPlace }) {
       pointLat={(d) => d.lat}
       pointLng={(d) => d.lng}
       pointAltitude={0.04}
-      pointRadius={(d) => d.id === selectedPlace?.id ? 0.8 : 0.55}
+      pointRadius={(d) => d.id === selectedPlace?.id ? 0.9 : 0.7}
       pointColor={() => '#ffffff'}
       pointLabel={(d) => `<span style="font-family:monospace;font-size:12px;color:rgba(255,255,255,0.85);background:#111111;border:1px solid rgba(255,255,255,0.15);padding:3px 8px">${d.name} — ${d.location} (${d.date})</span>`}
       onPointClick={(d) => onPlaceClick(d)}
