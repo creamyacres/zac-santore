@@ -180,6 +180,117 @@ function addNebula(scene, center, RADIUS, starCount = 400, spread = 45) {
   scene.add(new THREE.Points(geo, mat))
 }
 
+function addSun(scene, RADIUS) {
+  // Fixed position — upper-right quadrant of the sky
+  const sunDir = new THREE.Vector3(0.55, 0.45, -0.7).normalize()
+  const sunPos = sunDir.clone().multiplyScalar(RADIUS * 0.92)
+
+  // ── Sun disc ──────────────────────────────────────────────────────────
+  const discGeo = new THREE.SphereGeometry(7, 32, 32)
+  const discMat = new THREE.MeshBasicMaterial({
+    color: new THREE.Color(1.0, 0.97, 0.82),
+    transparent: false,
+  })
+  const disc = new THREE.Mesh(discGeo, discMat)
+  disc.position.copy(sunPos)
+  scene.add(disc)
+
+  // ── Inner glow (bright halo, additive) ───────────────────────────────
+  const innerGlowGeo = new THREE.BufferGeometry()
+  const igPositions = new Float32Array(200 * 3)
+  const igColors = new Float32Array(200 * 3)
+
+  const bx = new THREE.Vector3().crossVectors(sunDir, new THREE.Vector3(0, 1, 0)).normalize()
+  const by = new THREE.Vector3().crossVectors(sunDir, bx).normalize()
+
+  for (let i = 0; i < 200; i++) {
+    const angle = Math.random() * Math.PI * 2
+    const r = 14 * Math.sqrt(Math.random()) // uniform disk
+    const p = sunPos.clone()
+      .addScaledVector(bx, Math.cos(angle) * r)
+      .addScaledVector(by, Math.sin(angle) * r)
+    igPositions[i * 3]     = p.x
+    igPositions[i * 3 + 1] = p.y
+    igPositions[i * 3 + 2] = p.z
+    const brightness = Math.max(0.0, 1.0 - (r / 14) * 0.9)
+    igColors[i * 3]     = brightness
+    igColors[i * 3 + 1] = brightness * 0.92
+    igColors[i * 3 + 2] = brightness * 0.65
+  }
+  innerGlowGeo.setAttribute('position', new THREE.BufferAttribute(igPositions, 3))
+  innerGlowGeo.setAttribute('color', new THREE.BufferAttribute(igColors, 3))
+  scene.add(new THREE.Points(innerGlowGeo, new THREE.PointsMaterial({
+    size: 5.0,
+    vertexColors: true,
+    sizeAttenuation: true,
+    transparent: true,
+    opacity: 0.6,
+    blending: THREE.AdditiveBlending,
+    depthWrite: false,
+  })))
+
+  // ── Outer corona haze ─────────────────────────────────────────────────
+  const coronaGeo = new THREE.BufferGeometry()
+  const cPositions = new Float32Array(350 * 3)
+  const cColors = new Float32Array(350 * 3)
+
+  for (let i = 0; i < 350; i++) {
+    const angle = Math.random() * Math.PI * 2
+    const r = 16 + Math.random() * 38 // ring from 16 to 54 units out
+    const p = sunPos.clone()
+      .addScaledVector(bx, Math.cos(angle) * r)
+      .addScaledVector(by, Math.sin(angle) * r)
+    cPositions[i * 3]     = p.x
+    cPositions[i * 3 + 1] = p.y
+    cPositions[i * 3 + 2] = p.z
+    const falloff = Math.max(0.0, 1.0 - (r - 16) / 38)
+    const brightness = falloff * (0.2 + Math.random() * 0.3)
+    cColors[i * 3]     = brightness
+    cColors[i * 3 + 1] = brightness * 0.85
+    cColors[i * 3 + 2] = brightness * 0.45
+  }
+  coronaGeo.setAttribute('position', new THREE.BufferAttribute(cPositions, 3))
+  coronaGeo.setAttribute('color', new THREE.BufferAttribute(cColors, 3))
+  scene.add(new THREE.Points(coronaGeo, new THREE.PointsMaterial({
+    size: 8.0,
+    vertexColors: true,
+    sizeAttenuation: true,
+    transparent: true,
+    opacity: 0.35,
+    blending: THREE.AdditiveBlending,
+    depthWrite: false,
+  })))
+
+  // ── Lens flare-ish bright spike points ────────────────────────────────
+  const spikeGeo = new THREE.BufferGeometry()
+  const spPositions = new Float32Array(6 * 3)
+  const spColors = new Float32Array(6 * 3)
+  const spikeOffsets = [
+    [1, 0], [-1, 0], [0, 1], [0, -1], [0.7, 0.7], [-0.7, -0.7]
+  ]
+  spikeOffsets.forEach(([ox, oy], i) => {
+    const len = 20 + Math.random() * 18
+    const p = sunPos.clone()
+      .addScaledVector(bx, ox * len)
+      .addScaledVector(by, oy * len)
+    spPositions[i * 3]     = p.x
+    spPositions[i * 3 + 1] = p.y
+    spPositions[i * 3 + 2] = p.z
+    spColors[i * 3] = 0.95; spColors[i * 3 + 1] = 0.88; spColors[i * 3 + 2] = 0.55
+  })
+  spikeGeo.setAttribute('position', new THREE.BufferAttribute(spPositions, 3))
+  spikeGeo.setAttribute('color', new THREE.BufferAttribute(spColors, 3))
+  scene.add(new THREE.Points(spikeGeo, new THREE.PointsMaterial({
+    size: 3.5,
+    vertexColors: true,
+    sizeAttenuation: true,
+    transparent: true,
+    opacity: 0.5,
+    blending: THREE.AdditiveBlending,
+    depthWrite: false,
+  })))
+}
+
 export function addStarfield(scene) {
   const RADIUS = 400
   const objects = [] // for tick rotation
@@ -349,6 +460,9 @@ export function addStarfield(scene) {
     const center = randomSpherePoint(RADIUS).normalize().multiplyScalar(RADIUS)
     addNebula(scene, center, RADIUS, 500, 40 + Math.random() * 20)
   }
+
+  // ── Sun ───────────────────────────────────────────────────────────────
+  addSun(scene, RADIUS)
 
   // Tick — drift each layer at slightly different speeds for parallax feel
   return function tickStars() {
