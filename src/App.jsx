@@ -48,7 +48,7 @@ const PROJECTS = [
     tags: ['WebGL', 'GLSL', 'Three.js'],
     description:
       'A personal sandbox for GPU-driven motion experiments — shader effects, particle systems, and generative animation running entirely on the graphics card.',
-    url: null,
+    url: 'https://motion-gpu-playground.vercel.app',
   },
 ]
 
