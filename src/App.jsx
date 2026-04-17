@@ -7,6 +7,15 @@ import './App.css'
 const PROJECTS = [
   {
     id: 1,
+    name: 'Lefty AI',
+    year: '2025',
+    tags: ['AI', 'Automation', 'Local Business'],
+    description:
+      'White-glove AI automation for local businesses. Missed call text-back, 24/7 AI chat, Google profile optimization, and smart email workflows — set up in 48 hours.',
+    url: 'https://www.lefty-ai.com',
+  },
+  {
+    id: 2,
     name: 'CooCheena',
     year: '2024',
     tags: ['React', 'Supabase', 'AI'],
@@ -15,39 +24,30 @@ const PROJECTS = [
     url: 'https://coocheena.com',
   },
   {
-    id: 2,
-    name: 'Fieldwork',
-    year: '2024',
-    tags: ['Next.js', 'PostgreSQL', 'Maps'],
-    description:
-      'A location-based field notes tool for researchers and naturalists. Capture observations with GPS coordinates, photos, and structured metadata in the field.',
-    url: null,
-  },
-  {
     id: 3,
-    name: 'Ledger',
-    year: '2023',
-    tags: ['React', 'Node.js', 'SQLite'],
+    name: 'HEIC Converter',
+    year: '2025',
+    tags: ['Electron', 'Node.js'],
     description:
-      'Personal finance tracker built around intentional budgeting. Imports transactions from CSVs, categorizes spending, and surfaces patterns over time.',
+      'Drag-and-drop desktop app for bulk HEIC to JPEG/PNG conversion. Runs entirely local — no uploads, no accounts, no waiting.',
     url: null,
   },
   {
     id: 4,
-    name: 'Dispatch',
-    year: '2023',
-    tags: ['Python', 'FastAPI', 'Redis'],
+    name: 'Diorama',
+    year: '2025',
+    tags: ['AI', 'React', 'Three.js'],
     description:
-      'Lightweight task queue and job scheduler for small teams. Designed for reliability over complexity — no Kubernetes, no infra overhead.',
+      'Event-focused AI prompt app for generating 3D layout concepts. Describe a space, get an interactive floor plan — built for event producers thinking in rooms, not pixels.',
     url: null,
   },
   {
     id: 5,
-    name: 'Driftwood',
-    year: '2022',
-    tags: ['Svelte', 'Cloudflare', 'D3'],
+    name: 'Motion GPU Playground',
+    year: '2025',
+    tags: ['WebGL', 'GLSL', 'Three.js'],
     description:
-      'Long-form reading tracker and marginalia system. Tag passages, track themes across books, and surface connections between what you read.',
+      'A personal sandbox for GPU-driven motion experiments — shader effects, particle systems, and generative animation running entirely on the graphics card.',
     url: null,
   },
 ]
