@@ -39,7 +39,7 @@ const PROJECTS = [
     tags: ['AI', 'React', 'Three.js'],
     description:
       'Event-focused AI prompt app for generating 3D layout concepts. Describe a space, get an interactive floor plan — built for event producers thinking in rooms, not pixels.',
-    url: null,
+    url: 'https://diorama-tau.vercel.app',
   },
   {
     id: 5,
