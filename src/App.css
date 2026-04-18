@@ -578,6 +578,49 @@ a {
   color: rgba(255,255,255,0.28);
 }
 
+.contact-type-selector {
+  display: flex;
+  gap: 8px;
+}
+
+.contact-type-btn {
+  font-family: var(--font-mono, monospace);
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  padding: 6px 16px;
+  background: none;
+  border: 1px solid rgba(255,255,255,0.15);
+  color: rgba(255,255,255,0.4);
+  cursor: pointer;
+  transition: color 150ms ease, border-color 150ms ease, background 150ms ease,
+              transform 160ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.contact-type-btn:active {
+  transform: scale(0.96);
+}
+
+.contact-type-btn--active {
+  color: rgba(255,255,255,0.9);
+  border-color: rgba(255,255,255,0.4);
+  background: rgba(255,255,255,0.06);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .contact-type-btn:not(.contact-type-btn--active):hover {
+    color: rgba(255,255,255,0.7);
+    border-color: rgba(255,255,255,0.25);
+  }
+}
+
+.contact-type-email {
+  font-family: var(--font-mono, monospace);
+  font-size: 11px;
+  color: rgba(255,255,255,0.28);
+  letter-spacing: 0.04em;
+  margin-top: -8px;
+}
+
 .contact-form {
   display: flex;
   flex-direction: column;

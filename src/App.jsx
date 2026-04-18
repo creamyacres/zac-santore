@@ -368,11 +368,19 @@ function Projects() {
   )
 }
 
+const CONTACT_TYPES = [
+  { id: 'general', label: 'General', email: 'ztsantore@gmail.com' },
+  { id: 'events',  label: 'Events',  email: 'zac.santore@gramercytech.com' },
+]
+
 function Contact() {
   const sectionRef = useRef(null)
   const inView = useInView(sectionRef, { once: true, amount: 0.08 })
+  const [contactType, setContactType] = useState('general')
   const [form, setForm] = useState({ name: '', email: '', message: '' })
   const [status, setStatus] = useState(null)
+
+  const activeType = CONTACT_TYPES.find(t => t.id === contactType)
 
   function handleChange(e) {
     setForm(prev => ({ ...prev, [e.target.name]: e.target.value }))
@@ -380,6 +388,9 @@ function Contact() {
 
   function handleSubmit(e) {
     e.preventDefault()
+    const subject = encodeURIComponent(`Message from ${form.name}`)
+    const body = encodeURIComponent(form.message)
+    window.location.href = `mailto:${activeType.email}?subject=${subject}&body=${body}`
     setStatus('sent')
   }
 
@@ -476,6 +487,22 @@ function Contact() {
             </motion.div>
           ) : (
             <form className="contact-form" onSubmit={handleSubmit} noValidate>
+              {/* Type selector */}
+              <motion.div className="contact-type-selector" variants={fadeUp} transition={{ duration: 0.6, ease: EASE }}>
+                {CONTACT_TYPES.map(t => (
+                  <button
+                    key={t.id}
+                    type="button"
+                    className={`contact-type-btn ${contactType === t.id ? 'contact-type-btn--active' : ''}`}
+                    onClick={() => { setContactType(t.id); setStatus(null) }}
+                  >
+                    {t.label}
+                  </button>
+                ))}
+              </motion.div>
+              <motion.p className="contact-type-email" variants={fadeUp} transition={{ duration: 0.5, ease: EASE }}>
+                → {activeType.email}
+              </motion.p>
               {[
                 { id: 'name',    type: 'text',  label: 'Name',    placeholder: 'Your name',        autoComplete: 'name' },
                 { id: 'email',   type: 'email', label: 'Email',   placeholder: 'you@example.com',  autoComplete: 'email' },
