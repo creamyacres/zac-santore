@@ -414,7 +414,13 @@ function Contact() {
           </motion.p>
           <motion.div className="contact-links" variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.08 } } }}>
             {[
-              { href: 'mailto:ztsantore@gmail.com', label: 'ztsantore@gmail.com', icon: (
+              { href: 'mailto:ztsantore@gmail.com', label: 'ztsantore@gmail.com', sublabel: 'General inquiries', icon: (
+                <svg width="15" height="15" viewBox="0 0 15 15" fill="none" aria-hidden="true">
+                  <rect x="0.75" y="2.75" width="13.5" height="9.5" rx="1.5" stroke="currentColor" strokeWidth="1.5"/>
+                  <path d="M0.75 4.5l6.75 4.5 6.75-4.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+                </svg>
+              )},
+              { href: 'mailto:zac.santore@gramercytech.com', label: 'zac.santore@gramercytech.com', sublabel: 'Event tech inquiries', icon: (
                 <svg width="15" height="15" viewBox="0 0 15 15" fill="none" aria-hidden="true">
                   <rect x="0.75" y="2.75" width="13.5" height="9.5" rx="1.5" stroke="currentColor" strokeWidth="1.5"/>
                   <path d="M0.75 4.5l6.75 4.5 6.75-4.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
@@ -433,7 +439,7 @@ function Contact() {
                   <path d="M8 6.667V12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
                 </svg>
               )},
-            ].map(({ href, label, external, icon }) => (
+            ].map(({ href, label, sublabel, external, icon }) => (
               <motion.a
                 key={label}
                 href={href}
@@ -442,7 +448,11 @@ function Contact() {
                 transition={{ duration: 0.6, ease: EASE }}
                 {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
               >
-                {icon}{label}
+                {icon}
+                <span className="contact-link-text">
+                  {sublabel && <span className="contact-link-sublabel">{sublabel}</span>}
+                  {label}
+                </span>
               </motion.a>
             ))}
           </motion.div>
@@ -512,7 +522,7 @@ function NineToFive() {
           </motion.h2>
           <motion.div className="ntf-intro" variants={fadeUp} transition={{ duration: 0.7, ease: EASE }}>
             <p>
-              10+ years implementing event registration and technology platforms for large-scale conferences, trade shows, and corporate events. I manage the full client relationship — from scoping and platform configuration through on-site execution and post-event analysis.
+              10+ years implementing event registration and technology platforms for large-scale conferences, trade shows, and corporate events. I manage the full client relationship — from scoping and platform configuration through on-site execution and post-event analysis. Currently at <a href="https://www.gramercytech.com" target="_blank" rel="noopener noreferrer">Gramercy Tech</a>.
             </p>
             <div className="ntf-stats">
               <div className="ntf-stat">

@@ -564,6 +564,20 @@ a {
   color: rgba(255,255,255,0.9);
 }
 
+.contact-link-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.contact-link-sublabel {
+  font-family: var(--font-mono, monospace);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.28);
+}
+
 .contact-form {
   display: flex;
   flex-direction: column;
@@ -661,6 +675,17 @@ a {
   color: var(--ink-muted);
   line-height: 1.75;
   max-width: 58ch;
+}
+
+.ntf-intro p a {
+  color: var(--ink-muted);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.2s ease;
+}
+
+.ntf-intro p a:hover {
+  color: var(--ink);
 }
 
 .ntf-stats {
