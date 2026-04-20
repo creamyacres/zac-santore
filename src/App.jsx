@@ -8,7 +8,7 @@ const PROJECTS = [
   {
     id: 1,
     name: 'Lefty AI',
-    year: '2025',
+    year: '2026',
     tags: ['AI', 'Automation', 'Local Business'],
     description:
       'White-glove AI automation for local businesses. Missed call text-back, 24/7 AI chat, Google profile optimization, and smart email workflows — set up in 48 hours.',
@@ -17,7 +17,7 @@ const PROJECTS = [
   {
     id: 2,
     name: 'CooCheena',
-    year: '2024',
+    year: '2026',
     tags: ['React', 'Supabase', 'AI'],
     description:
       'AI-powered recipe and meal planning app. Generate recipes from ideas or URLs, organize them into collections, plan weekly meals, and auto-generate grocery lists.',
@@ -26,7 +26,7 @@ const PROJECTS = [
   {
     id: 3,
     name: 'HEIC Converter',
-    year: '2025',
+    year: '2026',
     tags: ['Electron', 'Node.js'],
     description:
       'Drag-and-drop desktop app for bulk HEIC to JPEG/PNG conversion. Runs entirely local — no uploads, no accounts, no waiting.',
@@ -35,7 +35,7 @@ const PROJECTS = [
   {
     id: 4,
     name: 'Diorama',
-    year: '2025',
+    year: '2026',
     tags: ['AI', 'React', 'Three.js'],
     description:
       'Event-focused AI prompt app for generating 3D layout concepts. Describe a space, get an interactive floor plan — built for event producers thinking in rooms, not pixels.',
@@ -44,7 +44,7 @@ const PROJECTS = [
   {
     id: 5,
     name: 'Motion GPU Playground',
-    year: '2025',
+    year: '2026',
     tags: ['WebGL', 'GLSL', 'Three.js'],
     description:
       'A personal sandbox for GPU-driven motion experiments — shader effects, particle systems, and generative animation running entirely on the graphics card.',
@@ -55,63 +55,57 @@ const PROJECTS = [
 const EVENTS = [
   {
     id: 1,
-    name: 'Global Technology Summit',
-    client: 'Placeholder Client A',
-    type: 'Conference',
-    attendees: 14200,
-    year: '2024',
-    location: 'Las Vegas, NV',
-    scope: ['Registration platform', 'Badge printing', 'Session management', 'Mobile app'],
+    name: 'Special Olympics World Games',
+    type: 'Global Sporting Event',
+    attendees: 20000,
+    year: '2015',
+    location: 'Los Angeles, CA',
+    scope: ['Registration'],
   },
   {
     id: 2,
-    name: 'Annual Leadership Forum',
-    client: 'Placeholder Client B',
-    type: 'Corporate',
-    attendees: 3800,
+    name: 'Google Generate',
+    type: 'Tech Conference',
+    attendees: 12000,
     year: '2024',
-    location: 'Chicago, IL',
-    scope: ['End-to-end registration', 'Attendee communications', 'On-site check-in'],
+    location: 'London, UK',
+    scope: ['Registration', 'Event App', 'Access Control', 'Gamification'],
   },
   {
     id: 3,
-    name: 'National Sales Kickoff',
-    client: 'Placeholder Client C',
-    type: 'Internal',
-    attendees: 6500,
-    year: '2023',
-    location: 'Orlando, FL',
-    scope: ['Multi-track registration', 'Housing management', 'Real-time reporting'],
+    name: 'Democratic National Convention',
+    type: 'Political Convention',
+    attendees: 10000,
+    year: '2016',
+    location: 'Philadelphia, PA',
+    scope: ['Registration', 'Access Control'],
   },
   {
     id: 4,
-    name: 'Healthcare Innovation Congress',
-    client: 'Placeholder Client D',
-    type: 'Association',
-    attendees: 9100,
-    year: '2023',
-    location: 'Washington, D.C.',
-    scope: ['Abstract management', 'CME tracking', 'Exhibitor portal', 'Mobile app'],
+    name: 'Google Accelerate',
+    type: 'Tech Conference',
+    attendees: 6500,
+    year: '2026',
+    location: 'Las Vegas, NV',
+    scope: ['Registration', 'Event App', 'Access Control', 'Gamification'],
   },
   {
     id: 5,
-    name: 'Consumer Brand Expo',
-    client: 'Placeholder Client E',
-    type: 'Trade Show',
-    attendees: 22000,
-    year: '2022',
-    location: 'New York, NY',
-    scope: ['Large-scale registration', 'Lead retrieval', 'Exhibitor management'],
+    name: 'Tech Immersion',
+    type: 'Tech Conference',
+    attendees: 5000,
+    year: '2025',
+    location: 'Global (3 regions)',
+    scope: ['Registration', 'Event App', 'Access Control', 'Gamification'],
   },
   {
     id: 6,
-    name: 'Executive Retreat Series',
-    client: 'Placeholder Client F',
-    type: 'Corporate',
-    attendees: 420,
-    year: '2022',
-    location: 'Napa, CA',
-    scope: ['Invitation management', 'Custom registration flow', 'Concierge portal'],
+    name: 'Presidential Debates',
+    type: 'Political Event',
+    attendees: 1200,
+    year: '2020',
+    location: '7-city national tour',
+    scope: ['Registration', 'Access Control'],
   },
 ]
 
@@ -620,7 +614,6 @@ function NineToFive() {
                 >
                   <td className="ntf-td-name">
                     <span className="ntf-event-name">{ev.name}</span>
-                    <span className="ntf-client">{ev.client}</span>
                   </td>
                   <td><span className="ntf-type-tag">{ev.type}</span></td>
                   <td className="ntf-td-loc">{ev.location}</td>
@@ -652,7 +645,6 @@ function NineToFive() {
               <div className="ntf-card-top">
                 <div>
                   <span className="ntf-event-name">{ev.name}</span>
-                  <span className="ntf-client">{ev.client}</span>
                 </div>
                 <span className="ntf-td-year">{ev.year}</span>
               </div>
